@@ -79,7 +79,8 @@ export const sendEventToOutfunnel = async (event: PluginEvent, userId: string): 
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(requestBody)
+            body: JSON.stringify(requestBody),
+            timeout: 1000, // client-side 1 second timeout
         });
 
         const isOkResponse = await statusOk(response)
